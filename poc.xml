@@ -1,1 +1,1 @@
-<!DOCTYPE aa[<!ELEMENT bb ANY><!ENTITY xxe PUBLIC "blob" "file:///etc/passwd">]>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE aa[<!ELEMENT bb ANY><!ENTITY xxe PUBLIC "blob" "file:///etc/passwd">]>
