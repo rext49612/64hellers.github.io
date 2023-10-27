@@ -15,7 +15,7 @@
 
     ws.onopen = function() {
         console.log('WebSocket connection opened');
-        ws.send("READY");  // Send a message immediately upon connecting
+        ws.send("EVIL_REQUEST");  // Send a message immediately upon connecting
     };
 
     ws.onmessage = function(event) {
