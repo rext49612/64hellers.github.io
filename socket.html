@@ -1,6 +1,6 @@
 <p>CSWSH_TEST</p>
 <script>
-    var ws = new WebSocket('wss://peer-alb-aps1-prod.browserstack.com/socket.io/?uid=7739310&EIO=3&transport=websocket');
+    var ws = new WebSocket('wss://peer-alb-aps1-prod.browserstack.com/socket.io/?EIO=3&transport=websocket');
     ws.onopen = function() {
         ws.send("READY");
     };
