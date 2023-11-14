@@ -8,16 +8,18 @@
 <body>
 
 <button onclick="sendWebSocketMessages()">Send WebSocket Messages</button>
-
+    <div id="screen"></div>
 <script>
     var ws = new WebSocket('wss://pusher-live.browserstack.com/socket.io/?EIO=3&transport=websocket');
-    
+    var job = document.getElementByID("screen")
     ws.onopen = function() {
         console.log('WebSocket connection opened');
     };
 
     ws.onmessage = function(event) {
         console.log('Received message from server:', event.data);
+        job.innerHTML =+'<p>'+event.data+'</p>
+        
     };
 
     ws.onerror = function(error) {
