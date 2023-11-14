@@ -15,10 +15,12 @@
     ws.onopen = function() {
         console.log('WebSocket connection opened');
     
-        var message = '42["message",{"sender":"client:","message":"{\\"type\\":\\"disconnect\\",\\"time\\":\\"2023-11-10T07:04:47.202Z\\"}","channel":"uD31C4UhQdFK8R8Z64do","type":"log","user_id":"7739310","live_session_id":"2f7f2047700013442c255f4ba2a1f90507253307"}]';
+        // Properly formatted message
+        var message = '42["message",{"sender":"client:","message":{"type":"disconnect","time":"2023-11-10T07:04:47.202Z"},"channel":"uD31C4UhQdFK8R8Z64do","type":"log","user_id":"7739310","live_session_id":""}]';
         
         ws.send(message);
     };
+
 
 
     ws.onmessage = function(event) {
