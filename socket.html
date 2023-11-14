@@ -11,11 +11,15 @@
 
 <script>
     var ws = new WebSocket('wss://pusher-live.browserstack.com/socket.io/?EIO=3&transport=websocket');
-
+    
     ws.onopen = function() {
         console.log('WebSocket connection opened');
-        ws.send("42["message",{"sender":"client:","message":"{\"type\":\"disconnect\",\"time\":\"2023-11-10T07:04:47.202Z\"}","channel":"uD31C4UhQdFK8R8Z64do","type":"log","user_id":"7739310","live_session_id":"2f7f2047700013442c255f4ba2a1f90507253307"}]"); 
+    
+        var message = '42["message",{"sender":"client:","message":"{\\"type\\":\\"disconnect\\",\\"time\\":\\"2023-11-10T07:04:47.202Z\\"}","channel":"uD31C4UhQdFK8R8Z64do","type":"log","user_id":"7739310","live_session_id":"2f7f2047700013442c255f4ba2a1f90507253307"}]';
+        
+        ws.send(message);
     };
+
 
     ws.onmessage = function(event) {
         console.log('Received message from server:', event.data);
