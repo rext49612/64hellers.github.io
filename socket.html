@@ -7,21 +7,14 @@
 </head>
 <body>
 
-<button onclick="sendWebSocketMessage()">Send WebSocket Message</button>
+<button onclick="sendWebSocketMessages()">Send WebSocket Messages</button>
 
 <script>
     var ws = new WebSocket('wss://pusher-live.browserstack.com/socket.io/?EIO=3&transport=websocket');
     
     ws.onopen = function() {
         console.log('WebSocket connection opened');
-    
-        // Properly formatted message
-        var message = '42["message",{"sender":"client:","message":{"type":"disconnect","time":"2023-11-10T07:04:47.202Z"},"channel":"uD31C4UhQdFK8R8Z64do","type":"log","user_id":"7739310","live_session_id":""}]';
-        
-        ws.send(message);
     };
-
-
 
     ws.onmessage = function(event) {
         console.log('Received message from server:', event.data);
@@ -35,13 +28,14 @@
         console.log('WebSocket connection closed');
     };
 
-    function sendWebSocketMessage() {
-        ws.send("Hello Server!");
+    function sendWebSocketMessages() {
+        // Sending multiple messages concurrently
+        for (var i = 0; i < 5; i++) {
+            var message = '42["message",{"sender":"client:","message":{"type":"disconnect","time":"2023-11-10T07:04:47.202Z"},"channel":"uD31C4UhQdFK8R8Z64do","type":"log","user_id":"7739310","live_session_id":""}]';
+            ws.send(message);
+        }
     }
 </script>
 
 </body>
 </html>
-
-
-
