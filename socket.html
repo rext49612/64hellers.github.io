@@ -4,38 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WebSocket Example</title>
+    <style>
+        #output {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
 </head>
 <body>
 
 <button onclick="sendWebSocketMessages()">Send WebSocket Messages</button>
-    <div id="screen"></div>
+<div id="output"></div>
+
 <script>
     var ws = new WebSocket('wss://pusher-live.browserstack.com/socket.io/?EIO=3&transport=websocket');
-    var job = document.getElementById("screen")
+    var outputElement = document.getElementById('output');
+    
     ws.onopen = function() {
         console.log('WebSocket connection opened');
+        outputElement.style.color = 'green';
+        outputElement.innerHTML = 'WebSocket connection established';
     };
 
     ws.onmessage = function(event) {
-        console.log('Received message from server:', event.data);
-        job.innerHTML +='<p>'+event.data+'</p>'
+        var receivedMessage = 'Received message from server: ' + event.data;
+        console.log(receivedMessage);
         
+        // Update the output element on the screen with red color
+        outputElement.style.color = 'red';
+        outputElement.innerHTML += '<p>' + receivedMessage + '</p>';
     };
 
     ws.onerror = function(error) {
         console.error('WebSocket Error:', error);
+        outputElement.style.color = 'red';
+        outputElement.innerHTML = 'WebSocket connection error';
     };
 
     ws.onclose = function() {
         console.log('WebSocket connection closed');
+        outputElement.style.color = 'red';
+        outputElement.innerHTML = 'WebSocket connection closed';
     };
 
     function sendWebSocketMessages() {
-        // Sending multiple messages concurrently
+        // Sending multiple messages with a delay of 0.5 seconds
         for (var i = 0; i < 30; i++) {
-            var message = '42["message",{"sender":"client:","message":{"type":"disconnect","time":"2023-11-10T07:04:47.202Z"},"channel":"uD31C4UhQdFK8R8Z64do","type":"log","user_id":"7739310","live_session_id":""}]';
-            ws.send(message);
-            job.innerHTML +=message
+            setTimeout(function() {
+                var message = '42["message",{"sender":"client:","message":{"type":"disconnect","time":"2023-11-10T07:04:47.202Z"},"channel":"uD31C4UhQdFK8R8Z64do","type":"log","user_id":"7739310","live_session_id":""}]';
+                ws.send(message);
+            }, i * 500); // 0.5 seconds delay for each message
         }
     }
 </script>
