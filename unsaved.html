@@ -18,7 +18,7 @@
                 img.onerror = function() {
                     document.getElementById('status').innerHTML += 'Failed to load property code ' + code + '<br>';
                 };
-                img.src = 'https://www.marriott.com/loyalty/myAccount/saveProperties.mi?save=false&marshaCode='+code+'&returnTo=/default.mi';
+                img.src = 'https://www.marriott.com/rewards/myAccount/saveProperties.mi?save=false&marshaCode='+code+'&returnTo=/default.mi';
             }, 5000 * index);
         }
         window.onload = function() {
