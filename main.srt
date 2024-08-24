@@ -22,14 +22,6 @@
 00:01:05,864 --> 00:01:08,117
 <IMG SRC=javascript:alert('XSS')>
 
-7
-00:01:08,224 --> 00:01:09,223
-<IMG>
-
-<SCRIPT>
-alert("XSS")
-</SCRIPT>
-
 8
 00:01:09,224 --> 00:01:10,434
 <IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>
